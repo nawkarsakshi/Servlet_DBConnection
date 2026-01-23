@@ -23,23 +23,7 @@ public class Product_savings extends HttpServlet {
         String p = req.getParameter("price");
         String q = req.getParameter("quantity");
         int count=0;
-        out.print("<html>");
-        out.print("<head>");
-        out.print("<title>Product Details</title>");
-        out.print("</head>");
-        out.print("<body>");
-        out.print("<form>");
-        out.print("Product-ID:" + i);
-        out.print("<br/><br/>");
-        out.print("Product-Name:" + n);
-        out.print("<br/><br/>");
-        out.print("Product-Price:" + p);
-        out.print("<br/><br/>");
-        out.print("Enter Product-Quantity:" + q);
-        out.print("</form>");
-        out.print("</body>");
-        out.print("</html>");
-
+        
         String query = "INSERT into products Values(?,?,?,?)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -57,8 +41,13 @@ public class Product_savings extends HttpServlet {
 
         if(count>0)
         {
+            out.print("<center>");
             out.print("<h1>Data Inserted Successfully</h1>");
-        }else{
+            out.print("<form action='viewdata'>");
+            out.print("<button type='submit'>View Data</button>");
+            out.print("</form>");
+            out.print("</center>");
+            }else{
             out.print("<h1>Oop's something went wrong try again later</h1>");
         }
     }
