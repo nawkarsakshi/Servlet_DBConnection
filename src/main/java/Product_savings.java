@@ -41,8 +41,13 @@ public class Product_savings extends HttpServlet {
 
         if(count>0)
         {
+            out.print("<center>");
             out.print("<h1>Data Inserted Successfully</h1>");
-        }else{
+            out.print("<form action='viewdata'>");
+            out.print("<button type='submit'>View Data</button>");
+            out.print("</form>");
+            out.print("</center>");
+            }else{
             out.print("<h1>Oop's something went wrong try again later</h1>");
         }
     }
